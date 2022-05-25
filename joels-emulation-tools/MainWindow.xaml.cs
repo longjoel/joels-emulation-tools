@@ -23,6 +23,17 @@ namespace joels_emulation_tools
         public MainWindow()
         {
             InitializeComponent();
+
+            Services.LoggingService.Instance.Register((logInfo) =>
+            {
+
+                LoggingTextBox.Text = LoggingTextBox.Text + "\n "+DateTime.Now.ToShortTimeString() + ":: " + logInfo;
+                LoggingTextBox.ScrollToEnd();
+            });
+
+            Services.LoggingService.Instance.Log("Good morning!");
+
+
         }
     }
 }
