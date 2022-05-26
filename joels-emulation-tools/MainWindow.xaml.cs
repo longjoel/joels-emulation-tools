@@ -33,6 +33,8 @@ namespace joels_emulation_tools
 
             Services.LoggingService.Instance.Log("Good morning!");
 
+            Win32.CdRom.GetCDRomDrives().ForEach(x => Services.LoggingService.Instance.Log($"{x.DriveIndex} -- {x.VolumeName} -- {x.DiscName}"));
+
 
         }
     }
